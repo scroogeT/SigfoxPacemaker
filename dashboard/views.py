@@ -5,10 +5,8 @@ from rest_framework import generics, status
 from rest_framework.views import APIView, Response
 from dashboard import models, serializers
 from django.views import generic
-from django.contrib.auth.decorators import login_required
 
 
-# @login_required
 class Home(generic.ListView):
     model = models.Device
     context_object_name = 'devices'
