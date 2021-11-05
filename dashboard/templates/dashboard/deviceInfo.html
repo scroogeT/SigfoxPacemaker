@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Device Info{% endblock %}
+
+{% block content %}
+    <div class="card text-center">
+      <div class="card-header">Readings For Device : {{ device.number }}</div>
+      <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Reading Type</td>
+                    <td>Reading</td>
+                    <td>Voltage</td>
+                    <td>Seq number</td>
+                    <td>Read On</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reading in readings %}
+                    <tr>
+                        <td>{{ reading.message_type }}</td>
+                        <td>{{ reading.reading }}</td>
+                        <td>{{ reading.device_voltage }}</td>
+                        <td>{{ reading.seq_number }}</td>
+                        <td>{{ reading.recorded_on }}</td>
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+      </div>
+    </div>
+
+{% endblock %}
